@@ -28,6 +28,7 @@ export const tokenBucketLimiter = ({maxTokens, refillRateInMs}) => {
             }
             bucket.token -= 1 
             await redisClient.set(key, JSON.stringify(bucket))
+            await redisClient.expire(key, Math.ceil(2*(maxTokens/(refillRateInMs*1000)))
             next()
         }catch(err){
             console.error(err.message)
