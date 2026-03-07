@@ -14,7 +14,7 @@ export const slidingWindowLimiter = ({windowInSeconds, maxRequests}) => {
                 return res.status(429).json({
                     Success: 'False',
                     message: 'You have reached the limit for this window',
-                    try_after: windowInSeconds - Math.floor((now - windowStart)/1000)
+                    remainingInWindow: count
                 })
             }
             await redisClient.zadd(key, now, now.toString())

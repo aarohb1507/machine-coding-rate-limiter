@@ -38,7 +38,6 @@ export const tokenBucketLimiter = ({maxTokens, refillRateInMs})=> {
             return res.status(500).json({
                 message: "An error occured"
             })
-            next()
         }
     }
 }
