@@ -4,7 +4,7 @@ const redisClient = new Redis()
 export const tokenBucketLimiter = ({maxTokens, refillRateInMs}) => {
     return async function(req, res, next){
         try{
-            const req = req.ip
+            const ip = req.ip
             const key = `tb:${ip}`
             const now = Date.now()
             const bucket = await redisClient.get(key)
