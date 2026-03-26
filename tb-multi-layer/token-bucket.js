@@ -23,3 +23,4 @@ class TokenBucket {
 
     }
 }
+export default TokenBucket
