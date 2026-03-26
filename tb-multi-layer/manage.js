@@ -17,5 +17,5 @@ class TokenBucketManager {
         return bucket.consume()
     }
 
-
 }
+export default TokenBucketManager
