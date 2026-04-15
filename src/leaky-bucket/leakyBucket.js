@@ -18,6 +18,7 @@ class LeakyBucket {
     }
     isAllowed(){
         this.leak()
+        
         if(this.currentLevel + 1 > capacity){
             return{
                 allowed: false,
